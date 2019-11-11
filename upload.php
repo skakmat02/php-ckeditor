@@ -1,7 +1,7 @@
 <?php
 $upload_dir = array(
     'img'=> '/ckeditor/img',
-);
+   );
 
 $imgset = array(
     // 'maxsize' => 2000,    
@@ -9,7 +9,7 @@ $imgset = array(
     // 'maxheight' => 800,    
     'minwidth' => 10,      
     'minheight' => 10,
-    'type' => array('bmp', 'gif', 'jpg', 'jpeg', 'png'),
+    'type' => array('bmp', 'gif', 'jpg', 'jpeg', 'png','pdf', 'docx','doc'),
 );
 
 // If 0, will OVERWRITE the existing file
@@ -23,7 +23,7 @@ if(isset($_FILES['upload']) && strlen($_FILES['upload']['name']) >1) {
     $site = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'].'/';
     $sepext = explode('.', strtolower($_FILES['upload']['name']));
     $type = end($sepext);    // gets extension
-    $upload_dir = in_array($type, $imgset['type']) ? $upload_dir['img'] : $upload_dir['audio'];
+    $upload_dir = in_array($type, $imgset['type']) ? $upload_dir['img'] : $upload_dir['file'];
     $upload_dir = trim($upload_dir, '/') .'/';
 
     //checkings for image or audio
